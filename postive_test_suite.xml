@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="BrowserTest">
+    <test name="NewHotelPageTest">
+        <classes>
+            <class name="org.hotel.article.test.NewHotelPageTest">
+                <methods>
+                    <include name="verifyThatNewHotelPageIsDisplayed" />
+                    <include name="verifyThatDataSectionIsDisplayed" />
+                    <include name="verifyThatSaveButtonIsDisplayed" />
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="NameDataSectionTest">
+        <classes>
+            <class name="org.hotel.article.test.NewHotelPageTest">
+                <methods>
+                    <include name="verifyThatNameFldIsDisplayed" />
+                    <include name="verifyThatAsteriskNameFldIsDisplayed" />
+                    <include name="verifyThatNameFldIsEditable" />
+                    <include name="verifyThatAlphanumericCharNameFldIsAllowed" />
+                    <include name="verifyThatSaveValidNameFldIsPossible" />
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="GlobalRateDataSectionTest">
+        <classes>
+            <class name="org.hotel.article.test.NewHotelPageTest">
+                <methods>
+                    <include name="verifyThatGlobalRateFldIsDisplayed" />
+                    <include name="verifyThatGlobalRatingIsAllowed" />
+                    <include name="verifyThatSaveEmptyNameIsPossible" />
+                    <include name="verifyThatSaveValidGlobalRateFldIsPossible" />
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="DateOfConstructionDataSectionTest">
+        <classes>
+            <class name="org.hotel.article.test.NewHotelPageTest">
+                <methods>
+                    <include name="verifyThatDateOfConstructionFldIsDisplayed" />
+                    <include name="verifyThatAsteriskDateOfConstructionFldIsDisplayed" />
+                    <include name="verifyThatDataOfConstructionFldIsEditable" />
+                    <include name="verifyThatEnterDataOfConstructionFldIsAllowed" />
+                    <include name="verifyThatSelectDataOfConstructionFldIsAllowed" />
+                    <include name="verifyThatSaveValidDataOfConstructionFldIsPossible" />
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="CountryDataSectionTest">
+        <classes>
+            <class name="org.hotel.article.test.NewHotelPageTest">
+                <methods>
+                    <include name="verifyThatCountryFldIsDisplayed" />
+                    <include name="verifyThatAsteriskCountryFldIsDisplayed" />
+                    <include name="verifyThatCountryFldIsEditable" />
+                    <include name="verifyThatSaveValidCountryFldIsPossible" />
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+</suite>

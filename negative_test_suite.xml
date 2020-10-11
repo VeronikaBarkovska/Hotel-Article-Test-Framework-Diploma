@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="BrowserTest">
+    <test name="NameDataSectionTest">
+        <classes>
+            <class name="org.hotel.article.test.NewHotelPageTest">
+                <methods>
+                    <include name="verifyThatSaveEmptyNameIsNotPossible" />
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="DateOfConstructionDataSectionTest">
+        <classes>
+            <class name="org.hotel.article.test.NewHotelPageTest">
+                <methods>
+                    <include name="verifyThatSaveEmptyDateOfConstructionIsNotPossible" />
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="CountryDataSectionTest">
+        <classes>
+            <class name="org.hotel.article.test.NewHotelPageTest">
+                <methods>
+                    <include name="verifyThatSaveEmptyCountryIsNotPossible" />
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+</suite>
