@@ -25,9 +25,15 @@ public class HomePage extends AbstractPage{
         PageFactory.initElements(driver,this);
     }
 
-    public boolean isHomePageLoad(){
+    @Override
+    public boolean isPageLoad() {
         return new TestHelper(driver).isPageLoad();
     }
+
+    public boolean isHomePageLoad(){
+        return isPageLoad();
+    }
+
     public NewHotelPage openNewHotelPage(){
         Actions move = new Actions(driver);
         move.moveToElement(articleMenuLink).moveToElement(newMenuLink).moveToElement(newHotelMenuLink).click().build().perform();

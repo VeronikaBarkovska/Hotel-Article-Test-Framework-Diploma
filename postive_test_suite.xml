@@ -67,4 +67,59 @@
         </classes>
     </test>
 
+    <test name="CityDataSectionTest">
+        <classes>
+            <class name="org.hotel.article.test.NewHotelPageTest">
+                <methods>
+                    <include name="verifyThatCityFldIsDisplayed" />
+                    <include name="verifyThatAsteriskCityFldIsDisplayed" />
+                    <include name="verifyThatCityFldIsEditable" />
+                    <include name="verifyThatSaveValidCityFldIsPossible" />
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="ShortDescriptionDataSectionTest">
+        <classes>
+            <class name="org.hotel.article.test.NewHotelPageTest">
+                <methods>
+                    <include name="verifyThatShortDescriptionFldIsDisplayed" />
+                    <include name="verifyThatAsteriskShortDescriptionFldIsDisplayed" />
+                    <include name="verifyThatShortDescriptionFldIsEditable" />
+                    <include name="verifyThatAlphanumericCharShortDescriptionFldIsAllowed" />
+                    <include name="verifyThatSaveValidShortDescriptionFldIsPossible" />
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="DescriptionDataSectionTest">
+        <classes>
+            <class name="org.hotel.article.test.NewHotelPageTest">
+                <methods>
+                    <include name="verifyThatDescriptionFldIsDisplayed" />
+                    <include name="verifyThatAsteriskDescriptionFldIsDisplayed" />
+                    <include name="verifyThatDescriptionFldIsEditable" />
+                    <include name="verifyThatAlphanumericCharDescriptionFldIsAllowed" />
+                    <include name="verifyThatSaveValidDescriptionFldIsPossible" />
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="NotesDataSectionTest">
+        <classes>
+            <class name="org.hotel.article.test.NewHotelPageTest">
+                <methods>
+                    <include name="verifyThatNotesFldIsDisplayed" />
+                    <include name="verifyThatNotesFldIsEditable" />
+                    <include name="verifyThatAlphanumericCharNotesFldIsAllowed" />
+                    <include name="verifyThatSaveEmptyNotesIsPossible" />
+                    <include name="verifyThatSaveValidNotesFldIsPossible" />
+                </methods>
+            </class>
+        </classes>
+    </test>
+
 </suite>

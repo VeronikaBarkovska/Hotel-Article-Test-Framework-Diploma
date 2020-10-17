@@ -221,8 +221,176 @@ public class NewHotelPageTest extends BaseTest{
         Assert.assertTrue(newHotelPage.isNotAlertMessageCountryDisplayed(),"Verify that it is possible to save the valid Country field");
     }
 
+    @Test
+    public void verifyThatCityFldIsDisplayed(){
+        homePage.isHomePageLoad();
+        newHotelPage = homePage.openNewHotelPage();
+        Assert.assertTrue(newHotelPage.isCityFldIsDispalyed(),"Verify that City field is displayed in Data section of Register new Hotel page");
+    }
 
+    @Test
+    public void verifyThatAsteriskCityFldIsDisplayed(){
+        homePage.isHomePageLoad();
+        newHotelPage = homePage.openNewHotelPage();
+        Assert.assertTrue(newHotelPage.isAsteriskCityFldIsDispalyed(),"Verify that City field is marked with asterisk");
+    }
 
+    @Test(dataProvider = "validCityNewHotelData", dataProviderClass = TextDataProvider.class)
+    public void verifyThatCityFldIsEditable(InfoBuilder infoData){
+        homePage.isHomePageLoad();
+        newHotelPage = homePage.openNewHotelPage();
+        newHotelPage.selectCityDropDownList(infoData);
+        Assert.assertEquals(newHotelPage.cityTextIsDisplayed(),infoData.getCity().getName(),"Verify that City field is editable");
+    }
 
+    @Test
+    public void verifyThatSaveEmptyCityIsNotPossible(){
+        homePage.isHomePageLoad();
+        newHotelPage = homePage.openNewHotelPage();
+        newHotelPage.clickSaveBtn();
+        Assert.assertTrue(newHotelPage.isAlertMessageCityDisplayed(),"Verify that it is not possible to save the empty (with default value “Select me”) City field and a meaningful error message is displayed");
+    }
 
+    @Test(dataProvider = "validCityNewHotelData", dataProviderClass = TextDataProvider.class)
+    public void verifyThatSaveValidCityFldIsPossible(InfoBuilder infoData){
+        homePage.isHomePageLoad();
+        newHotelPage = homePage.openNewHotelPage();
+        newHotelPage.selectCityDropDownList(infoData);
+        newHotelPage.clickSaveBtn();
+        Assert.assertTrue(newHotelPage.isNotAlertMessageCityDisplayed(),"Verify that it is possible to save the valid City field");
+    }
+
+    @Test
+    public void verifyThatShortDescriptionFldIsDisplayed(){
+        homePage.isHomePageLoad();
+        newHotelPage = homePage.openNewHotelPage();
+        Assert.assertTrue(newHotelPage.isShortDescriptionFldIsDispalyed(),"Verify that Short Description field is displayed in Data section of Register new Hotel");
+    }
+
+    @Test
+    public void verifyThatAsteriskShortDescriptionFldIsDisplayed(){
+        homePage.isHomePageLoad();
+        newHotelPage = homePage.openNewHotelPage();
+        Assert.assertTrue(newHotelPage.isAsteriskShortDescriptionFldIsDispalyed(),"Verify that Short Description field is marked with asterisk");
+    }
+
+    @Test(dataProvider = "editShortDescriptionNewHotelData", dataProviderClass = TextDataProvider.class)
+    public void verifyThatShortDescriptionFldIsEditable(InfoBuilder infoData){
+        homePage.isHomePageLoad();
+        newHotelPage = homePage.openNewHotelPage();
+        newHotelPage.enterShortDescriptionFld(infoData);
+        Assert.assertEquals(newHotelPage.shortDescriptionTextIsDisplayed(),infoData.getShortDescriptionText(),"Verify that Short Description field is editable");
+    }
+
+    @Test(dataProvider = "alphanumericCharactersShortDescriptionNewHotelData", dataProviderClass = TextDataProvider.class)
+    public void verifyThatAlphanumericCharShortDescriptionFldIsAllowed(InfoBuilder infoData){
+        homePage.isHomePageLoad();
+        newHotelPage = homePage.openNewHotelPage();
+        newHotelPage.enterShortDescriptionFld(infoData);
+            Assert.assertEquals(newHotelPage.shortDescriptionTextIsDisplayed(),infoData.getShortDescriptionText(),"Verify that Short Description field allows to input alphanumeric characters");
+    }
+
+    @Test
+    public void verifyThatSaveEmptyShortDescriptionIsNotPossible(){
+        homePage.isHomePageLoad();
+        newHotelPage = homePage.openNewHotelPage();
+        newHotelPage.clickSaveBtn();
+        Assert.assertTrue(newHotelPage.isAlertMessageShortDescriptionDisplayed(),"Verify that it is not possible to save the empty Short Description field and a meaningful error message is displayed");
+    }
+
+    @Test(dataProvider = "alphanumericCharactersShortDescriptionNewHotelData", dataProviderClass = TextDataProvider.class)
+    public void verifyThatSaveValidShortDescriptionFldIsPossible(InfoBuilder infoData){
+        homePage.isHomePageLoad();
+        newHotelPage = homePage.openNewHotelPage();
+        newHotelPage.enterShortDescriptionFld(infoData);
+        newHotelPage.clickSaveBtn();
+        Assert.assertTrue(newHotelPage.isNotAlertMessageShortDescriptionDisplayed(),"Verify that it is possible to save the valid Short Description field");
+    }
+
+    @Test
+    public void verifyThatDescriptionFldIsDisplayed(){
+        homePage.isHomePageLoad();
+        newHotelPage = homePage.openNewHotelPage();
+        Assert.assertTrue(newHotelPage.isDescriptionFldIsDispalyed(),"Verify that Description field is displayed in Data section of Register new Hotel");
+    }
+
+    @Test
+    public void verifyThatAsteriskDescriptionFldIsDisplayed(){
+        homePage.isHomePageLoad();
+        newHotelPage = homePage.openNewHotelPage();
+        Assert.assertTrue(newHotelPage.isAsteriskDescriptionFldIsDispalyed(),"Verify that Description field is marked with asterisk");
+    }
+
+    @Test(dataProvider = "editDescriptionNewHotelData", dataProviderClass = TextDataProvider.class)
+    public void verifyThatDescriptionFldIsEditable(InfoBuilder infoData){
+        homePage.isHomePageLoad();
+        newHotelPage = homePage.openNewHotelPage();
+        newHotelPage.enterDescriptionFld(infoData);
+        Assert.assertEquals(newHotelPage.descriptionTextIsDisplayed(),infoData.getDescriptionText(),"Verify that Description field is editable");
+    }
+
+    @Test(dataProvider = "alphanumericCharactersDescriptionNewHotelData", dataProviderClass = TextDataProvider.class)
+    public void verifyThatAlphanumericCharDescriptionFldIsAllowed(InfoBuilder infoData){
+        homePage.isHomePageLoad();
+        newHotelPage = homePage.openNewHotelPage();
+        newHotelPage.enterDescriptionFld(infoData);
+        Assert.assertEquals(newHotelPage.descriptionTextIsDisplayed(),infoData.getDescriptionText(),"Verify that Description field allows to input alphanumeric characters");
+    }
+
+    @Test
+    public void verifyThatSaveEmptyDescriptionIsNotPossible(){
+        homePage.isHomePageLoad();
+        newHotelPage = homePage.openNewHotelPage();
+        newHotelPage.clickSaveBtn();
+        Assert.assertTrue(newHotelPage.isAlertMessageDescriptionDisplayed(),"Verify that it is not possible to save the empty Description field and a meaningful error message is displayed");
+    }
+
+    @Test(dataProvider = "alphanumericCharactersDescriptionNewHotelData", dataProviderClass = TextDataProvider.class)
+    public void verifyThatSaveValidDescriptionFldIsPossible(InfoBuilder infoData){
+        homePage.isHomePageLoad();
+        newHotelPage = homePage.openNewHotelPage();
+        newHotelPage.enterDescriptionFld(infoData);
+        newHotelPage.clickSaveBtn();
+        Assert.assertTrue(newHotelPage.isNotAlertMessageDescriptionDisplayed(),"Verify that it is possible to save the valid Description field");
+    }
+
+    @Test
+    public void verifyThatNotesFldIsDisplayed(){
+        homePage.isHomePageLoad();
+        newHotelPage = homePage.openNewHotelPage();
+        Assert.assertTrue(newHotelPage.isNotesFldIsDispalyed(),"Verify that Notes field is displayed in Data section of Register new Hotel");
+    }
+
+    @Test(dataProvider = "editNotesNewHotelData", dataProviderClass = TextDataProvider.class)
+    public void verifyThatNotesFldIsEditable(InfoBuilder infoData){
+        homePage.isHomePageLoad();
+        newHotelPage = homePage.openNewHotelPage();
+        newHotelPage.enterNotesFld(infoData);
+        Assert.assertEquals(newHotelPage.notesTextIsDisplayed(),infoData.getNotesText(),"Verify that Notes field is editable");
+    }
+
+    @Test(dataProvider = "alphanumericCharactersNotesNewHotelData", dataProviderClass = TextDataProvider.class)
+    public void verifyThatAlphanumericCharNotesFldIsAllowed(InfoBuilder infoData){
+        homePage.isHomePageLoad();
+        newHotelPage = homePage.openNewHotelPage();
+        newHotelPage.enterNotesFld(infoData);
+        Assert.assertEquals(newHotelPage.notesTextIsDisplayed(),infoData.getNotesText(),"Verify that Notes field allows to input alphanumeric characters");
+    }
+
+    @Test
+    public void verifyThatSaveEmptyNotesIsPossible(){
+        homePage.isHomePageLoad();
+        newHotelPage = homePage.openNewHotelPage();
+        newHotelPage.clickSaveBtn();
+        Assert.assertTrue(newHotelPage.isNotAlertMessageNotesDisplayed(),"Verify that it is possible to save the empty Notes field");
+    }
+
+    @Test(dataProvider = "alphanumericCharactersNotesNewHotelData", dataProviderClass = TextDataProvider.class)
+    public void verifyThatSaveValidNotesFldIsPossible(InfoBuilder infoData){
+        homePage.isHomePageLoad();
+        newHotelPage = homePage.openNewHotelPage();
+        newHotelPage.enterNotesFld(infoData);
+        newHotelPage.clickSaveBtn();
+        Assert.assertTrue(newHotelPage.isNotAlertMessageNotesDisplayed(),"Verify that it is possible to save the valid Notes field");
+    }
 }
